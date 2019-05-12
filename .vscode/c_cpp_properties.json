@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/home/priyamash/projects/tufast/cartographer_catkin/devel/include",
+        "/opt/ros/kinetic/include",
+        "/home/priyamash/projects/tufast/cartographer_catkin/src/ceres-solver/include",
+        "/usr/include"
+      ],
+      "name": "Linux"
+    }
+  ]
+}

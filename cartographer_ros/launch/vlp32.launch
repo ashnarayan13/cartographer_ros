@@ -27,7 +27,7 @@
           -configuration_basename vlp32.lua"
       output="screen">
     <remap from="points2" to="velodyne_points" />
-    <remap from="imu" to="sbg/imu"/>
+    <remap from="imu" to="enu/imu"/>
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"

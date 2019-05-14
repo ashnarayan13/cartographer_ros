@@ -35,6 +35,7 @@ set(PACKAGE_DEPENDENCIES
   tf2_ros
   urdf
   visualization_msgs
+  imu_fix
 )
 
 if(WIN32)

@@ -46,5 +46,6 @@
           -urdf_filenames $(arg urdf_filenames)
           -bag_filenames $(arg bag_filenames)"
       launch-prefix="$(arg launch_prefix)"
-      output="screen"/>
+      output="screen">
+  </node>
 </launch>

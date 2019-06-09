@@ -46,7 +46,7 @@ options = {
 TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 1
 MAX_3D_RANGE = 150 --Maximum range to use from LiDAR
 TRAJECTORY_BUILDER_3D.min_range = 2 --Minimum range to use from LiDAR
-TRAJECTORY_BUILDER_3D.submaps.num_range_data = 50 --Num of scans before a submap is forced to be created
+TRAJECTORY_BUILDER_3D.submaps.num_range_data = 25 --Num of scans before a submap is forced to be created
 
 MAP_BUILDER.use_trajectory_builder_3d = true
 MAP_BUILDER.num_background_threads = 7
@@ -54,6 +54,7 @@ POSE_GRAPH.optimization_problem.huber_scale = 5e2 --Higher implies higher weight
 POSE_GRAPH.optimize_every_n_nodes = 0 --Set to 0 to disable global SLAM
 POSE_GRAPH.constraint_builder.sampling_ratio = 0.1 --Number of close nodes to be sampled for LC original(0.03)
 POSE_GRAPH.optimization_problem.ceres_solver_options.max_num_iterations = 10
+POSE_GRAPH.constraint_builder.max_constraint_distance = 30
 POSE_GRAPH.constraint_builder.min_score = 0.62
 POSE_GRAPH.constraint_builder.global_localization_min_score = 0.66
 POSE_GRAPH.optimization_problem.log_solver_summary = true --To log the IMU / tracking frame
@@ -65,15 +66,15 @@ POSE_GRAPH.constraint_builder.fast_correlative_scan_matcher_3d.linear_xy_search_
 TRAJECTORY_BUILDER_3D.voxel_filter_size = 0.05
 TRAJECTORY_BUILDER_3D.high_resolution_adaptive_voxel_filter.max_length = 0.5
 TRAJECTORY_BUILDER_3D.high_resolution_adaptive_voxel_filter.min_num_points = 1.
-TRAJECTORY_BUILDER_3D.high_resolution_adaptive_voxel_filter.max_range = 30. --Range to which the high res filter should work
+TRAJECTORY_BUILDER_3D.high_resolution_adaptive_voxel_filter.max_range = 50. --Range to which the high res filter should work
 TRAJECTORY_BUILDER_3D.low_resolution_adaptive_voxel_filter.max_length = 0.5
 TRAJECTORY_BUILDER_3D.low_resolution_adaptive_voxel_filter.min_num_points = 1.
 --Handling weights for LOCAL SLAM
 TRAJECTORY_BUILDER_3D.use_online_correlative_scan_matching = false --use fast correlative scan matcher
-TRAJECTORY_BUILDER_3D.ceres_scan_matcher.translation_weight = 4.5 --Default is 5
-TRAJECTORY_BUILDER_3D.ceres_scan_matcher.rotation_weight = 5e2 --Default 4e2
+TRAJECTORY_BUILDER_3D.ceres_scan_matcher.translation_weight = 1e1 --Default is 5
+TRAJECTORY_BUILDER_3D.ceres_scan_matcher.rotation_weight = 5 --Default 4e2
 TRAJECTORY_BUILDER_3D.ceres_scan_matcher.only_optimize_yaw = true --Default is false
-TRAJECTORY_BUILDER_3D.ceres_scan_matcher.occupied_space_weight_0 = 2. --High resolution filter weight
+TRAJECTORY_BUILDER_3D.ceres_scan_matcher.occupied_space_weight_0 = 10. --High resolution filter weight
 TRAJECTORY_BUILDER_3D.ceres_scan_matcher.occupied_space_weight_1 = 10. --Low resolution filter weight
 
 return options

@@ -16,20 +16,21 @@
 
 <launch>
   <param name="robot_description"
-    textfile="$(find cartographer_ros)/urdf/vlp32.urdf" />
+    textfile="$(find cartographer_ros)/urdf/pandar.urdf" />
 
   <node name="robot_state_publisher" pkg="robot_state_publisher"
     type="robot_state_publisher" />
 
-    <node pkg="imu_fix" name="imu_sim" type="imu_fix_node"/>
+    <node pkg="imu_fix" name="imu_sim" type="odom_node"/>
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
-          -configuration_basename vlp32.lua"
+          -configuration_basename pandar.lua"
       output="screen">
     <remap from="points2" to="pandar_points" />
     <remap from="imu" to="sbg/imu"/>
+    <remap from="odom" to="mapped/odom"/>
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"

@@ -63,6 +63,7 @@ std::unique_ptr<carto::sensor::OdometryData> SensorBridge::ToOdometryData(
 
 void SensorBridge::HandleOdometryMessage(
     const std::string& sensor_id, const nav_msgs::Odometry::ConstPtr& msg) {
+  
   std::unique_ptr<carto::sensor::OdometryData> odometry_data =
       ToOdometryData(msg);
   if (odometry_data != nullptr) {
